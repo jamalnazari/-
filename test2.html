@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ماشین حساب ساده</title>
+  <style>
+    body {
+      text-align: center;
+      padding-top: 100px;
+      direction: rtl;
+      font-family: sans-serif;
+    }
+
+    input {
+      width: 200px;
+      height: 40px;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 50px;
+      height: 40px;
+      font-size: 18px;
+      margin: 4px;
+    }
+
+    .container {
+      display: inline-block;
+      border: 2px solid #333;
+      padding: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <input type="text" id="q" placeholder="محاسبه کنید"><br>
+    <button onclick="w()">C</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="y('-')">-</button><br>
+    <button onclick="y('3')">3</button>
+    <button onclick="y('2')">2</button>
+    <button onclick="y('1')">1</button>
+    <button onclick="y('*')">*</button><br>
+    <button onclick="y('4')">4</button>
+    <button onclick="y('5')">5</button>
+    <button onclick="y('6')">6</button>
+    <button onclick="y('/')">/</button><br>
+    <button onclick="y('7')">7</button>
+    <button onclick="y('8')">8</button>
+    <button onclick="y('9')">9</button>
+    <button onclick="y('+')">+</button><br>
+    <button onclick="y('0')">0</button>
+    <button onclick="y('.')">.</button>
+  </div>
+
+  <script>
+    function w() {
+      document.getElementById("q").value = "";
+    }
+
+    function y(value) {
+      document.getElementById("q").value += value;
+    }
+
+    function calculate() {
+      try {
+        const result = eval(document.getElementById("q").value);
+        document.getElementById("q").value = result;
+      } catch {
+        document.getElementById("q").value = "خطا";
+      }
+    }
+  </script>
+
+</body>
+</html>
